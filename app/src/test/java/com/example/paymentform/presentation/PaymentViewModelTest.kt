@@ -98,13 +98,33 @@ class PaymentViewModelTest {
     fun incorrect_cvv() {
         // arrange
         val sut = PaymentViewModel()
+
         sut.onEvent(PaymentEvent.ChangeCVV("abc"))
 
         // act
         sut.onEvent(PaymentEvent.Submit)
 
         // assert
+        // assert
         assertEquals(false, sut.uiState.submitted)
         assertEquals(R.string.incorrect_cvv, sut.uiState.cvvError)
+    }
+
+    @Test
+    fun successful_submit() {
+        // arrange
+        val fakeYearProvider = FakeDateProvider(2022, 12)
+        val validateExpirationDate = ValidateExpirationDate(fakeYearProvider)
+        val sut = PaymentViewModel(validateExpirationDate = validateExpirationDate)
+        sut.onEvent(PaymentEvent.ChangeSum("100"))
+        sut.onEvent(PaymentEvent.ChangeCardNumber("1111 1111 1111 1111"))
+        sut.onEvent(PaymentEvent.ChangeExpirationDate("01/25"))
+        sut.onEvent(PaymentEvent.ChangeCVV("111"))
+
+        // act
+        sut.onEvent(PaymentEvent.Submit)
+
+        // assert
+        assertEquals(true, sut.uiState.submitted)
     }
 }
