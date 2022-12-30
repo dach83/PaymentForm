@@ -105,6 +105,6 @@ class PaymentViewModelTest {
 
         // assert
         assertEquals(false, sut.uiState.submitted)
-        assertEquals(R.string.incorrect_card_number, sut.uiState.cvvError)
+        assertEquals(R.string.incorrect_cvv, sut.uiState.cvvError)
     }
 }

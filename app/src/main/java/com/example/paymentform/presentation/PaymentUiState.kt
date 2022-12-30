@@ -12,5 +12,8 @@ data class PaymentUiState(
     val expirationDate: String = "",
     @StringRes val expirationDateError: Int? = null,
 
+    val cvv: String = "",
+    @StringRes val cvvError: Int? = null,
+
     val submitted: Boolean = false
 )

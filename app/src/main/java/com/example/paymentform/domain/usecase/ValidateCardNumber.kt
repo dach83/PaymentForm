@@ -1,6 +1,5 @@
 package com.example.paymentform.domain.usecase
 
-import androidx.core.text.isDigitsOnly
 import com.example.paymentform.R
 
 class ValidateCardNumber {
@@ -8,7 +7,7 @@ class ValidateCardNumber {
         val input = cardNumber.replace(" ", "")
 
         // for simplicity, check that the card number consists of 16 digits
-        if (input.length != CARD_NUMBER_LENGTH || !input.isDigitsOnly()) {
+        if (input.length != CARD_NUMBER_LENGTH || !input.all { it.isDigit() }) {
             return ValidateResult(
                 valid = false,
                 error = R.string.incorrect_card_number
