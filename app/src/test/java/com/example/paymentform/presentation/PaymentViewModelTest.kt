@@ -1,5 +1,6 @@
 package com.example.paymentform.presentation
 
+import com.example.paymentform.R
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -16,6 +17,6 @@ class PaymentViewModelTest {
 
         // assert
         assertEquals(false, sut.uiState.submitted)
-        assertEquals("Input the sum", sut.uiState.sumError)
+        assertEquals(R.string.enter_a_positive_non_zero_number, sut.uiState.sumError)
     }
 }

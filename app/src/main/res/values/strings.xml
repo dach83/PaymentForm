@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PaymentForm</string>
+    <string name="enter_a_positive_non_zero_number">"Enter a positive non-zero number"</string>
 </resources>
