@@ -7,5 +7,5 @@ class CurrentDateProvider : DateProvider {
         .get(Calendar.YEAR)
 
     override fun currentMonth() = Calendar.getInstance()
-        .get(Calendar.MONTH)
+        .get(Calendar.MONTH) + 1 // January is the zero month
 }

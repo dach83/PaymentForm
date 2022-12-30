@@ -4,5 +4,11 @@
     <string name="payment_amount_is_too_large">"Payment amount is too large"</string>
     <string name="incorrect_card_number">"Incorrect card number"</string>
     <string name="incorrect_expiration_date">"Incorrect expiration date"</string>
-    <string name="incorrect_cvv">"Incorrect CVC2/CVV"</string>
+    <string name="incorrect_cvv">"Incorrect CVV"</string>
+    <string name="amount_of_money">Amount of money</string>
+    <string name="pay">Pay</string>
+    <string name="card">"Card"</string>
+    <string name="card_number">"Card number"</string>
+    <string name="MM_YY">"MM/YY"</string>
+    <string name="cvv">"CVV"</string>
 </resources>

@@ -68,7 +68,7 @@ class PaymentViewModelTest {
     fun incorrect_month_in_expiration_date() {
         // arrange
         val sut = PaymentViewModel()
-        sut.onEvent(PaymentEvent.ChangeExpirationDate("15/29"))
+        sut.onEvent(PaymentEvent.ChangeExpirationDate("1529"))
 
         // act
         sut.onEvent(PaymentEvent.Submit)
@@ -84,7 +84,7 @@ class PaymentViewModelTest {
         val fakeYearProvider = FakeDateProvider(2022, 12)
         val validateExpirationDate = ValidateExpirationDate(fakeYearProvider)
         val sut = PaymentViewModel(validateExpirationDate = validateExpirationDate)
-        sut.onEvent(PaymentEvent.ChangeExpirationDate("08/19"))
+        sut.onEvent(PaymentEvent.ChangeExpirationDate("0819"))
 
         // act
         sut.onEvent(PaymentEvent.Submit)
@@ -118,7 +118,7 @@ class PaymentViewModelTest {
         val sut = PaymentViewModel(validateExpirationDate = validateExpirationDate)
         sut.onEvent(PaymentEvent.ChangeSum("100"))
         sut.onEvent(PaymentEvent.ChangeCardNumber("1111 1111 1111 1111"))
-        sut.onEvent(PaymentEvent.ChangeExpirationDate("01/25"))
+        sut.onEvent(PaymentEvent.ChangeExpirationDate("0125"))
         sut.onEvent(PaymentEvent.ChangeCVV("111"))
 
         // act
