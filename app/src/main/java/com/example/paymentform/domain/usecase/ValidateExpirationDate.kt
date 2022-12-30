@@ -4,7 +4,9 @@ import com.example.paymentform.R
 import com.example.paymentform.domain.util.yearprovider.CurrentYearProvider
 import com.example.paymentform.domain.util.yearprovider.YearProvider
 
-class ValidateExpirationDate(private val yearProvider: YearProvider = CurrentYearProvider()) {
+class ValidateExpirationDate(
+    private val yearProvider: YearProvider = CurrentYearProvider()
+) {
     operator fun invoke(expirationDate: String): ValidateResult {
         if (!expirationDate.contains("/")) {
             return ValidateResult(

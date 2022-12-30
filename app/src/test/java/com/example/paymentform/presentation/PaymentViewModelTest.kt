@@ -93,4 +93,20 @@ class PaymentViewModelTest {
         assertEquals(false, sut.uiState.submitted)
         assertEquals(R.string.incorrect_expiration_date, sut.uiState.expirationDateError)
     }
+
+    @Test
+    fun expiration_date_is_expired() {
+        // arrange
+        val fakeYearProvider = FakeYearProvider(2022)
+        val validateExpirationDate = ValidateExpirationDate(fakeYearProvider)
+        val sut = PaymentViewModel(validateExpirationDate = validateExpirationDate)
+        sut.onEvent(PaymentEvent.ChangeExpirationDate("08/22"))
+
+        // act
+        sut.onEvent(PaymentEvent.Submit)
+
+        // assert
+        assertEquals(false, sut.uiState.submitted)
+        assertEquals(R.string.incorrect_expiration_date, sut.uiState.expirationDateError)
+    }
 }
