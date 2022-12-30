@@ -9,5 +9,8 @@ data class PaymentUiState(
     val cardNumber: String = "",
     @StringRes val cardNumberError: Int? = null,
 
+    val expirationDate: String = "",
+    @StringRes val expirationDateError: Int? = null,
+
     val submitted: Boolean = false
 )
