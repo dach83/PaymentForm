@@ -1,6 +1,8 @@
 package com.example.paymentform.presentation
 
 import com.example.paymentform.R
+import com.example.paymentform.domain.usecase.ValidateExpirationDate
+import com.example.paymentform.domain.util.yearprovider.FakeYearProvider
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -79,7 +81,9 @@ class PaymentViewModelTest {
     @Test
     fun incorrect_year_in_expiration_date() {
         // arrange
-        val sut = PaymentViewModel()
+        val fakeYearProvider = FakeYearProvider(2022)
+        val validateExpirationDate = ValidateExpirationDate(fakeYearProvider)
+        val sut = PaymentViewModel(validateExpirationDate = validateExpirationDate)
         sut.onEvent(PaymentEvent.ChangeExpirationDate("08/19"))
 
         // act
