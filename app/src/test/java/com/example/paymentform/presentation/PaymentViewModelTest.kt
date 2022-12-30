@@ -45,6 +45,6 @@ class PaymentViewModelTest {
 
         // assert
         assertEquals(false, sut.uiState.submitted)
-        assertEquals(R.string.incorrect_card_number, sut.uiState.sumError)
+        assertEquals(R.string.incorrect_card_number, sut.uiState.cardNumberError)
     }
 }
