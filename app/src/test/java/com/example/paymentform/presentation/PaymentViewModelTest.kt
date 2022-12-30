@@ -35,6 +35,20 @@ class PaymentViewModelTest {
     }
 
     @Test
+    fun too_much_payment_sum() {
+        // arrange
+        val sut = PaymentViewModel()
+        sut.onEvent(PaymentEvent.ChangeSum("99999999999999999"))
+
+        // act
+        sut.onEvent(PaymentEvent.Submit)
+
+        // assert
+        assertEquals(false, sut.uiState.submitted)
+        assertEquals(R.string.payment_amount_is_too_large, sut.uiState.sumError)
+    }
+
+    @Test
     fun incorrect_card_number() {
         // arrange
         val sut = PaymentViewModel()
