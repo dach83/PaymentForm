@@ -41,13 +41,13 @@ class PaymentViewModel(
             it.error != null
         }
 
-        if (hasError) {
-            uiState = uiState.copy(
-                sumError = sumResult.error,
-                cardNumberError = cardNumberResult.error,
-                expirationDateError = expirationDateResult.error,
-                cvvError = cvvResult.error
-            )
-        }
+        uiState = uiState.copy(
+            sumError = sumResult.error,
+            cardNumberError = cardNumberResult.error,
+            expirationDateError = expirationDateResult.error,
+            cvvError = cvvResult.error,
+            submitted = !hasError
+        )
     }
 }
+
