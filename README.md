@@ -1,4 +1,4 @@
 # PaymentForm
-Форма оплаты на MVVM
+Учебный проект. Валидация формы оплаты на MVVM.
 
 ![Payment form demo](demo/PaymentForm.gif)
